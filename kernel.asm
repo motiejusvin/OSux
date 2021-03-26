@@ -10,7 +10,7 @@ section .text
 
 
 global start                ;nasm directive for starting
-extern kmain              ;method defined in C file
+extern kmain                ;method defined in C file
 
 start:
     cli                     ;block interrupts
@@ -18,6 +18,7 @@ start:
     call kmain              ;call to main method
     hlt                     ;halt the cpu
 
-section .bss
+
+section .bss                ;bss section
 resb 8192                   ;8kb for stack
 stack_space:
