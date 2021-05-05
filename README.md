@@ -1,2 +1,2 @@
-# Kernel
-Kernel just for fun 
+# OSux
+OS,that sux 
