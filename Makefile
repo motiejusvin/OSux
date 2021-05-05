@@ -1,6 +1,8 @@
 CFLAGS= -fno-pie -m32 -ffreestanding -c 
 ASMFLAGS = -i bootloader/
 
+clean:
+	rm -r kernel.bin kernel.o kernelc.o video.o os-image.bin 
 all: run
 
 video.o: drivers/video/video.c
