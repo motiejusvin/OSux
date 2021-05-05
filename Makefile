@@ -1,8 +1,6 @@
 CFLAGS= -fno-pie -m32 -ffreestanding -c 
 ASMFLAGS = -i bootloader/
 
-clean:
-	rm -r kernel.bin kernel.o kernelc.o video.o os-image.bin 
 all: run
 
 video.o: drivers/video/video.c
@@ -19,5 +17,8 @@ os-image.bin: mbr.bin kernel.bin
 	cat $^ > $@
 run: os-image.bin
 	qemu-system-i386 -fda $<
+
+clean:
+	rm -r kernel.bin kernel.o kernelc.o video.o os-image.bin 
 
 
