@@ -18,3 +18,4 @@ os-image.bin: mbr.bin kernel.bin
 run: os-image.bin
 	qemu-system-i386 -fda $<
 
+
