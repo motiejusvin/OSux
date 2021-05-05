@@ -1,6 +1,4 @@
 [bits 32]      
 [extern kmain]
-
-call kmain
-jmp $
-
+call kmain  
+hlt  

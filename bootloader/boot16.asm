@@ -1,41 +1,26 @@
 [bits 16]
 [org 0x7c00]
 
-KERN_OFF equ 0x1000 ;kernel offset
-
-mov [BOOT_DRIVE],dl ;bios set drive
+KERNEL_OFFSET equ 0x1000 
+mov [BOOT_DRIVE],dl 
 
 
 ;stack
 mov bp,0x9000
-mov sp,bp 
+mov sp,bp
 
 call load_kernel
-call tobits32
+call to32
 
 jmp $
 
 %include "disk.asm"
 %include "gdt.asm"
 %include "boomshakalaka32.asm"
-[bits 16]
-init_disp:
-    ;this is where i will write all my interupts for display
-    mov ah,00
-    mov al,0x06
-    int 0x10
-    mov bh,0x0
-    mov cx,0x3
-    mov dx,0x3
-    mov al,0x1
-    mov ah,0x0c
-    int 0x10
-    cli
-    ret 
+
 [bits 16]
 load_kernel:
-    call init_disp
-    mov bx,KERN_OFF
+    mov bx,KERNEL_OFFSET
     mov dh,2
     mov dl,[BOOT_DRIVE]
     call load_disk
@@ -43,8 +28,9 @@ load_kernel:
 
 [bits 32]
 tobits32:
-    call KERN_OFF
+    call KERNEL_OFFSET
     jmp $
+
 
 BOOT_DRIVE db 0
 

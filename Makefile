@@ -2,11 +2,12 @@ CFLAGS= -fno-pie -m32 -ffreestanding -c
 ASMFLAGS = -i bootloader/
 
 all: run
-
-video.o: drivers/video/video.c
-	gcc $(CFLAGS) $< -o video.o
-kernel.bin: kernel.o kernelc.o video.o 
+video.o: drivers/video/video.asm
+	nasm $< -f elf -o $@
+kernel.bin: kernel.o kernelc.o videoc.o video.o
 	ld -m elf_i386 -o $@ -Ttext 0x1000 $^ --oformat binary
+videoc.o: drivers/video/video.c
+	gcc $(CFLAGS) $< -o $@
 kernel.o: kernel.asm
 	nasm kernel.asm -f elf -o $@
 kernelc.o: kernel.c

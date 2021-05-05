@@ -6,8 +6,8 @@ to32:
     or eax,0x1
     mov cr0,eax
     jmp CODE_SEG:init_32bit
-[bits 32] 
 
+[bits 32] 
 init_32bit:
     mov ax, DATA_SEG ;gettin ready
     mov ds,ax
@@ -16,7 +16,7 @@ init_32bit:
     mov fs,ax
     mov gs,ax
     
-    mov ebp,0x90000
+    mov ebp,0x9000
     mov esp,ebp
 
     call tobits32 
