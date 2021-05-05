@@ -1,0 +1,6 @@
+https://en.wikipedia.org/wiki/VESA_BIOS_Extensions - vesa ext
+https://en.wikipedia.org/wiki/BIOS_interrupt_call - bios calls
+https://en.wikipedia.org/wiki/INT_10H - int 10h
+https://en.wikipedia.org/wiki/Mode_13h - mode 13h
+https://en.wikipedia.org/wiki/Unreal_mode - unreal mode
+https://en.wikipedia.org/wiki/Protected_mode - he protec

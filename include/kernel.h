@@ -1,6 +1,9 @@
 #ifndef KERNEL_H
 #define KERNEL_H
 
+void kprint(char *messg,unsigned int line);
+void clearc(void);
+void e();
 enum colors{
     WHITE = 0x0F,
     YELLOW = 0x0E,
