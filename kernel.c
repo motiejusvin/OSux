@@ -1,8 +1,7 @@
 #include "include/kernel.h"
 
 void kmain(void) {  
-    char words[] = "SVEIKI";
+    char words[] = "print";
     clearc();
-    kprint(words,2);
-    
+    kprint(words,2);    
 }

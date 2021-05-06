@@ -8,7 +8,7 @@ void kprint(char messg[], unsigned int line) {
     i = (line * 80 * 2);
     while (messg[pos] != '\0') {
         vidptr[i] = messg[pos]; 
-        vidptr[i + 1] = BLACK + WHITE;
+        vidptr[i + 1] = BLUE + WHITE;
         ++pos;
         i = i + 2;
     }
@@ -21,8 +21,8 @@ void clearc() {
     unsigned int i = 0;  // self-explatinory
     unsigned int j = 0;
     while (j < 80 * 25 * 2) {
-        vvidptr[j] = ' ';              
-        vvidptr[j + 1] = BLACK+WHITE;  
+        vvidptr[j] = '1';              
+        vvidptr[j + 1] = BLUE +WHITE;  
         j = j + 2;
     } 
 }

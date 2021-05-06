@@ -19,7 +19,15 @@ jmp $
 %include "boomshakalaka32.asm"
 
 [bits 16]
+init_disp:
+    sti
+    mov ax,0x4f02
+    mov bx,0x010B
+    int 0x10
+    ret    
+[bits 16]
 load_kernel:
+    call init_disp
     mov bx,KERNEL_OFFSET
     mov dh,2
     mov dl,[BOOT_DRIVE]
